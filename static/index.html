@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogStream | Real-Time Aggregator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="brand">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5"></path>
+                <path d="M12 12v-6"></path>
+                <path d="M12 18v-2"></path>
+            </svg>
+            LogStream
+        </div>
+
+        <div class="filter-group">
+            <label for="search-input">Message Search</label>
+            <input type="text" id="search-input" placeholder="Search logs...">
+        </div>
+
+        <div class="filter-group">
+            <label for="level-select">Log Level</label>
+            <select id="level-select">
+                <option value="">All Levels</option>
+                <option value="INFO">INFO</option>
+                <option value="WARN">WARN</option>
+                <option value="ERROR">ERROR</option>
+                <option value="DEBUG">DEBUG</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="service-input">Service Filter</label>
+            <input type="text" id="service-input" placeholder="e.g. auth-service">
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header">
+            <div class="stats">
+                <div class="stat-item">Buffer: <span id="log-count">0</span> / 1000</div>
+            </div>
+            <div class="status-indicator">
+                <div class="dot" id="connection-dot"></div>
+                <span id="connection-status">Connecting...</span>
+            </div>
+        </header>
+
+        <div id="log-container" class="log-container">
+            <!-- Logs will appear here -->
+        </div>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
